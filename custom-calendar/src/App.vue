@@ -1,11 +1,22 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <Calendar v-model="pickedDate" />
 </template>
+<script setup>
+import { ref } from 'vue'
+import Calendar from './components/Calendar.vue'
+import { formatDate } from './utils/date'
 
-<style scoped></style>
+const pickedDate = ref(formatDate(new Date()))
+</script>
+
+<style>
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  height: 100%;
+}
+</style>
